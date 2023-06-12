@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>CS493 A9</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <h1>CS493 Assignment 9</h1>
+  <h1>Marcos Valdez</h1>
+  <h2>ONID: valdemar</h2>
+
+  <br>
+
+  {% if session %}
+
+  <h3>User Name: {{ session.userinfo.name }}</h3>
+  <h3>Owner ID: {{ owner_id }}</h3>
+  <h3>id_token: </h3>
+  <p>{{ id_token }}</p>
+
+  </br>
+
+  <p>
+    The user data above was retrieved from the JWT returned from Auth0. <br>
+    If this is the first time you have logged in with this account, your <br>
+    User Name and Owner ID have been added as attributes to this site's<br>
+    database as a new user entity. <br><br>
+    
+    The complete JWT content is provided below.  <br><br>
+
+    The value of the "id_token" attribute is required by this site's <br>
+    database API to view private boats, create boats, and delete boats. <br>
+    This value must be included as a Bearer Token in the request headers <br>
+    for any such operation. <br><br>
+
+    The value of the the "sub" attribute of the "userinfo" dictionary is <br>
+    your owner_id. This will be assigned as an attribute to any boat you<br>
+    create with this site's database API. You can only create a boat<br>
+    after logging in. You can only view a private boat or delete any boat<br>
+    if you are its owner. 
+  </p>
+
+  <br>
+
+  <h3>JWT: </h3>
+  <div><pre>{{ pretty }}</pre></div>
+
+  <br>
+
+  <p>
+    NOTE: Logging out will not prevent you from using the database <br>
+    with these account credentials as long as the token has not expired. <br>
+    The logout button is provided to make creating additional users <br>
+    more convenient.
+
+  </p>
+  <p><a href="/logout"><button>Logout</button></a></p>
+
+  {% else %}
+
+    <h3>Welcome, Guest</h3>
+
+    <p>
+      The button below will redirect you to an Auth0 login page. Log in <br>
+      or create an account to generate a JWT. You will be redirected to <br>
+      this site and shown your JWT. Data within the JWT is required to <br>
+      interact with certain parts of this site's database REST API.
+    </p>
+
+    <br>
+
+    <p><a href="/login"><button>Login</button></a></a></p>
+
+  {% endif %}
+
+  </form>
+
+</body>
+</html>
