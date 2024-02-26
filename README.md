@@ -58,7 +58,7 @@ This project implements a NoSQL database that models users, boats, and loads (ca
 - Flask
 
 ### Verification:
-- Postman
+- [Postman unit test suite](https://github.com/MHValdez/CS493-a9-final-project/blob/main/valdemar_project.postman_collection.json)
 
 ### Maintenance:
 - This project was built on a previous assignment that did not employ Flask Blueprints. As a result, it is monolithic. Modularizing it with Blueprints would improve readability and make continuing development easier.
