@@ -63,6 +63,7 @@ This project implements a NoSQL database that models users, boats, and loads (ca
 ### Maintenance:
 - This project was built on a previous assignment that did not employ Flask Blueprints. As a result, it is monolithic. Modularizing it with Blueprints would improve readability and make continuing development easier.
 - Due to academic deadlines, the code is not as DRY as it could be. In particular, input validation for Create/POST and Update/PUT operations could be moved into generic functions.
+- Authentication keys are stored in an ENV file. This is not appropriate for deployment.
 
 ## Demonstrated Proficiencies:
 - Cloud deployment
